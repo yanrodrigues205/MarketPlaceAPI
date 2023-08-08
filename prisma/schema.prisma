@@ -44,4 +44,6 @@ model Loja{
   id                String   @id @default(uuid())
   nome              String
   Produtos          Produtos[]
+  criacao_us        DateTime @default(now())
+  atualizacao_us    DateTime @updatedAt
 }
