@@ -1,10 +1,10 @@
 import express from 'express'
+import { rotas } from './rotas';
 
 const app = express();
 
-app.get("/", (req,res)=>{
-    res.json({message: "bem-vindo"})
-})
+app.use(express.json());
+app.use(rotas);
 
 app.listen(1234, ()=>{
     console.log("servidor rodando!");
