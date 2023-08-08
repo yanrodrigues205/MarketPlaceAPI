@@ -8,3 +8,8 @@ PT-BR    Projeto desenvolvido com objetivo de criar uma api em typescript, usand
 -npm i prisma typescript @types/express ts-node-dev -D <br>
 -npx tsc --init <br>
 -npx prisma init
+
+
+##Routers
+##UserRouter
+![image](https://github.com/yanrodrigues205/MarketPlaceAPI/assets/92941649/6ccc712e-a561-40ec-b6e7-046a590a4b1d)
