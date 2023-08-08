@@ -10,4 +10,38 @@ datasource db {
   url      = "file:./dev.db"
 }
 
+model Usuario {
+    id              String @id @default(uuid())
+    nome            String 
+    email           String
+    senha           String
+    criacao_us      DateTime @default(now())
+    atualizacao_us  DateTime @updatedAt
+    Acesso          Acesso?  @relation(fields: [acessoID], references: [id])
+    acessoID        String?
+}
 
+model Acesso{
+    id              String @id @default(uuid())
+    nome            String
+    usuario         Usuario[]
+    criacao_us      DateTime @default(now())
+    atualizacao_us  DateTime @updatedAt
+}
+
+model Produtos{
+  id                String @id @default(uuid())
+  nome              String
+  preco             String
+  quantidade        String
+  criacao_us        DateTime @default(now())
+  atualizacao_us    DateTime @updatedAt
+  Loja              Loja?    @relation(fields: [lojaID], references: [id])
+  lojaID            String?      
+}
+
+model Loja{
+  id                String   @id @default(uuid())
+  nome              String
+  Produtos          Produtos[]
+}
