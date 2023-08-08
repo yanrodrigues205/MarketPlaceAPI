@@ -6,3 +6,4 @@ PT-BR    Projeto desenvolvido com objetivo de criar uma api em typescript, usand
 ## Install Dependencies / Instalar Dependencias 
 -npm i express <br>
 -npm i prisma typescript @types/express -D <br>
+-npx tsc --init
