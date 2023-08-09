@@ -6,7 +6,7 @@ export const criarAcesso = async( req: Request, res: Response) => {
 
     if(!nome)
     {
-        return res.status(422).json({ mensagem : "Para cadastrar um acesso preencha todos os campos!"})
+        return res.status(422).json({ mensagem : "Para cadastrar um acesso preencha todos os campos!"});
     }
     else
     {

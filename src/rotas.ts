@@ -7,7 +7,7 @@ export const rotas = Router();
 
 //USUARIO
 rotas.post("/cadastrar_usuario", criarUsuario);
-rotas.delete("/deletar_usuarios", deletarUsuarios);
+//rotas.delete("/deletar_usuarios", deletarUsuarios);
 
 //PRODUTOS
 rotas.post("/cadastrar_produto", criarProduto);
