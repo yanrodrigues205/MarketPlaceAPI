@@ -23,7 +23,7 @@ model Usuario {
 
 model Acesso{
     id              String @id @default(uuid())
-    nome            String
+    nome            String     @unique
     usuario         Usuario[]
     criacao_us      DateTime @default(now())
     atualizacao_us  DateTime @updatedAt
@@ -42,7 +42,7 @@ model Produtos{
 
 model Loja{
   id                String   @id @default(uuid())
-  nome              String
+  nome              String   
   Produtos          Produtos[]
   criacao_us        DateTime @default(now())
   atualizacao_us    DateTime @updatedAt

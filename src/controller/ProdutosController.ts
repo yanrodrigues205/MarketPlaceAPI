@@ -7,7 +7,7 @@ export const criarProduto = async (req: Request, res: Response) => {
 
     if(!nome  || !preco  || !quantidade)
     {
-        return res.status(422).json({ mensagem: "Para cadastrar preencha todos os campos!"});
+        return res.status(422).json({ mensagem: "Para cadastrar um produto preencha todos os campos!"});
     }
     else
     {
