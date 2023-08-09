@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import { prisma } from "../database/prisma";
+import { hash } from "bcryptjs";
 
 export const criarUsuario = async(req: Request, res: Response) =>{
     const { nome, email, senha, acessoNome } = req.body;
@@ -17,10 +18,14 @@ export const criarUsuario = async(req: Request, res: Response) =>{
             }
         });
 
+        
+
         if(!verificaEmail)
         {
+            const hashSenha = await hash(senha, 8); //CRIPTOGRAFANDO SENHA COM MAIS 8 CARACTERES
+
             const usuario = await prisma.usuario.create({
-                data: {nome, email, senha, Acesso: {
+                data: {nome, email, senha: hashSenha, Acesso: {
                     connect: {
                         nome: acessoNome //RELACIONA NOME DE ACESSO AO ID DO ACESSO CORRESPONDENTE
                     }
