@@ -6,7 +6,7 @@ PT-BR    Projeto desenvolvido com objetivo de criar uma api em typescript, usand
 ## Install Dependencies / Instalar Dependencias 
 -npm i express bcryptjs <br>
 -npm i prisma typescript @types/express ts-node-dev -D <br>
--npm i @types/bcryptjs -D
+-npm i @types/bcryptjs -D <br>
 -npx tsc --init <br>
 -npx prisma init
 
