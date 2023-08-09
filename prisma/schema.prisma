@@ -17,6 +17,7 @@ model Usuario {
     senha           String
     criacao_us      DateTime @default(now())
     atualizacao_us  DateTime @updatedAt
+    loja            Loja[]
     Acesso          Acesso?  @relation(fields: [acessoID], references: [id])
     acessoID        String?
 }
@@ -46,4 +47,6 @@ model Loja{
   Produtos          Produtos[]
   criacao_us        DateTime @default(now())
   atualizacao_us    DateTime @updatedAt
+  Usuario           Usuario? @relation(fields: [usuarioID], references: [id])
+  usuarioID         String?
 }
