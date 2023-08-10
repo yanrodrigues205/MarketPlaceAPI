@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { criarUsuario, deletarUsuarios } from "./controller/UsuarioController";
-import { criarProduto  } from "./controller/ProdutosController";
+import { criarProduto, pegarProdutos  } from "./controller/ProdutosController";
 import { criarAcesso, pegarAcessos } from "./controller/AcessoController";
 import { criarLoja, pegarLojas } from "./controller/LojaController";
 
@@ -12,6 +12,7 @@ rotas.post("/cadastrar_usuario", criarUsuario);
 
 //PRODUTOS
 rotas.post("/cadastrar_produto", criarProduto);
+rotas.get("/buscar_produtos", pegarProdutos)
 
 //ACESSO
 rotas.post("/cadastrar_acesso", criarAcesso);

@@ -33,7 +33,7 @@ model Acesso{
 model Produtos{
   id                String @id @default(uuid())
   nome              String
-  preco             String
+  preco             Decimal
   quantidade        String
   criacao_us        DateTime @default(now())
   atualizacao_us    DateTime @updatedAt
