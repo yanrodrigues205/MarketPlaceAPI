@@ -18,14 +18,22 @@ model Usuario {
     criacao_us      DateTime @default(now())
     atualizacao_us  DateTime @updatedAt
     loja            Loja[]
-    Acesso          Acesso?  @relation(fields: [acessoID], references: [id])
+    usuarioAcesso   UsuarioAcesso[]
+
+}
+
+model UsuarioAcesso {
+    id              String @id @default(uuid())
+    usuario         Usuario? @relation(fields: [usuarioID], references: [id])
+    usuarioID       String?
+    acesso          Acesso? @relation(fields: [usuarioID], references: [id])
     acessoID        String?
 }
 
 model Acesso{
     id              String @id @default(uuid())
     nome            String     @unique
-    usuario         Usuario[]
+    usuarioAcesso   UsuarioAcesso[]
     criacao_us      DateTime @default(now())
     atualizacao_us  DateTime @updatedAt
 }
