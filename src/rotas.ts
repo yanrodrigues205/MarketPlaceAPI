@@ -2,6 +2,7 @@ import { Router } from "express";
 import { criarUsuario, deletarUsuarios } from "./controller/UsuarioController";
 import { criarProduto  } from "./controller/ProdutosController";
 import { criarAcesso, pegarAcessos } from "./controller/AcessoController";
+import { criarLoja } from "./controller/LojaController";
 
 export const rotas = Router();
 
@@ -15,3 +16,6 @@ rotas.post("/cadastrar_produto", criarProduto);
 //ACESSO
 rotas.post("/cadastrar_acesso", criarAcesso);
 rotas.get("/buscar_acessos", pegarAcessos);
+
+//LOJA
+rotas.post("/cadastrar_loja", criarLoja);
