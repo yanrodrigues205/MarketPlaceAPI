@@ -2,8 +2,7 @@ import {  Request, Response } from "express";
 import { prisma } from "../database/prisma";
 
 export const criarLoja = async (req: Request, res: Response) => {
-    const { nome } = req.body;
-    const { usuarioID } = req.params;
+    const { nome, usuarioID } = req.body;
 
     const verificaID = await prisma.usuario.findUnique({
         where: {
@@ -34,9 +33,16 @@ export const criarLoja = async (req: Request, res: Response) => {
                 }
                    
             });
+
+            return res.json(loja);
         }
         
     }
     
+};
 
+export const pegarLojas = async (req: Request, res: Response) =>{
+    const loja = await prisma.loja.findMany();
+
+    return res.json(loja);
 };
