@@ -43,15 +43,19 @@ export const criarUsuario = async(req: Request, res: Response) =>{
                     id: true,
                     nome: true,
                     email: true,
+                    senha: true,
                     usuarioAcesso:{
                         select:{
                             Acesso:{
                                 select:{
+                                    id: true,
                                     nome: true,
                                 }
                             }
                         }
-                    }
+                    },
+                    criacao_us: true,
+                    atualizacao_us: true
                 }
             });
         
