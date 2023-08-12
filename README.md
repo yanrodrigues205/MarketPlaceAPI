@@ -4,15 +4,17 @@ PT-BR    Projeto desenvolvido com objetivo de criar uma api em typescript, usand
 
 
 ## Install Dependencies / Instalar Dependencias 
--npm i express bcryptjs <br>
+-npm i express bcryptjs jsonwebtoken<br>
 -npm i prisma typescript @types/express ts-node-dev -D <br>
 -npm i @types/bcryptjs -D <br>
+-npm i @types/jsonwebtoken -D <br>
 -npx tsc --init <br>
 -npx prisma init
 
 
 ## UserRegister
-![usuario_criado_api](https://github.com/yanrodrigues205/MarketPlaceAPI/assets/92941649/7ec06ce9-84e2-4c7a-bb1b-acc97250302e)
+![image](https://github.com/yanrodrigues205/MarketPlaceAPI/assets/92941649/35c0a2dc-f4da-4a11-8bf2-d1f57a7f0732)
+
 <br>
 
 ## StoreRegister
