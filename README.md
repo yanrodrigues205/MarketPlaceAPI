@@ -13,7 +13,8 @@ PT-BR    Projeto desenvolvido com objetivo de criar uma api em typescript, usand
 
 
 ## UserRegister
-![usuario_criado_api](https://github.com/yanrodrigues205/MarketPlaceAPI/assets/92941649/7ec06ce9-84e2-4c7a-bb1b-acc97250302e)
+![image](https://github.com/yanrodrigues205/MarketPlaceAPI/assets/92941649/35c0a2dc-f4da-4a11-8bf2-d1f57a7f0732)
+
 <br>
 
 ## StoreRegister
