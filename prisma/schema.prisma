@@ -24,9 +24,9 @@ model Usuario {
 
 model UsuarioAcesso {
     id              String @id @default(uuid())
-    usuario         Usuario? @relation(fields: [usuarioID], references: [id])
+    Usuario         Usuario? @relation(fields: [usuarioID], references: [id])
     usuarioID       String?
-    acesso          Acesso? @relation(fields: [usuarioID], references: [id])
+    Acesso          Acesso? @relation(fields: [acessoID], references: [id])
     acessoID        String?
 }
 
@@ -41,7 +41,7 @@ model Acesso{
 model Produtos{
   id                String @id @default(uuid())
   nome              String
-  preco             Decimal
+  preco             Float
   quantidade        String
   criacao_us        DateTime @default(now())
   atualizacao_us    DateTime @updatedAt

@@ -25,11 +25,34 @@ export const criarUsuario = async(req: Request, res: Response) =>{
             const hashSenha = await hash(senha, 8); //CRIPTOGRAFANDO SENHA COM MAIS 8 CARACTERES
 
             const usuario = await prisma.usuario.create({
-                data: {nome, email, senha: hashSenha, Acesso: {
-                    connect: {
-                        nome: acessoNome //RELACIONA NOME DE ACESSO AO ID DO ACESSO CORRESPONDENTE
+                data: {
+                    nome, 
+                    email, 
+                    senha: hashSenha, 
+                    usuarioAcesso:{
+                        create: {   //RELACIONANDO TABELA USUARIO_ACESSO COM A TABELA ACESSO
+                            Acesso: { 
+                                connect:{
+                                    nome: acessoNome
+                                }
+                            }
+                        }
                     }
-                }},
+                },
+                select:{
+                    id: true,
+                    nome: true,
+                    email: true,
+                    usuarioAcesso:{
+                        select:{
+                            Acesso:{
+                                select:{
+                                    nome: true,
+                                }
+                            }
+                        }
+                    }
+                }
             });
         
             return res.json(usuario);
@@ -53,3 +76,9 @@ export const criarUsuario = async(req: Request, res: Response) =>{
      return res.json({ mensagem: "Todos usuarios foram deletados com sucesso!"});
 
  };
+
+
+ export const pegarUsuarios = async (req: Request, res: Response) => {
+    const usuarios  = await prisma.usuario.findMany();
+    return res.json(usuarios);
+ }
