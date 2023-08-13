@@ -20,7 +20,7 @@ rotas.post("/logar", logar);
 rotas.post("/cadastrar_usuario", autenticaMiddleware(["Adm"]), criarUsuario);
 rotas.delete("/deletar_todos_usuarios", autenticaMiddleware(["Adm"]), deletarUsuarios);
 rotas.get("/buscar_usuarios",autenticaMiddleware(["Adm"]), pegarUsuarios);
-rotas.get("/buscar_unico_usuario",autenticaMiddleware(["Adm", "Vendedor", "Comprador"]), pegarUnicoUsuario)
+rotas.post("/buscar_usuario_logado",autenticaMiddleware(["Adm", "Vendedor", "Comprador"]), pegarUnicoUsuario)
 
 //PRODUTOS
 rotas.post("/cadastrar_produto",autenticaMiddleware(["Adm", "Vendedor"]), criarProduto);
