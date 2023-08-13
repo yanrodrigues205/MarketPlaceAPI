@@ -1,0 +1,37 @@
+<%- include('../global/header.ejs') %>
+<body>
+    <%- include('../global/nav.ejs') %>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Cadastrar Usuario</h3>
+            </div>
+
+            <div class="card-body">
+                <form method="POST" action="/cadastrar_usuario">
+                    <label>Nome</label>
+                    <input type="text" placeholder="Digite seu nome" class="form-control" name="nome"><br>
+                    <label>Email</label>
+                    <input type="email" placeholder="Digite seu email" class="form-control" name="email"><br>
+                    <label>Senha</label>
+                    <input type="password" placeholder="Digite sua senha" class="form-control" name="senha"><br>
+                    <label>Acesso</label>
+                    <select class="form-control" name="acessoNome">
+                        <option value="Vendedor">Vendedor</option>
+                        <option value="Adm">Administrador</option>
+                        <option value="Comprador">Comprador</option>
+                    </select>
+                    <hr>
+                    <button class="btn btn-success">
+                        Enviar Dados
+                    </button>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('../global/footer.ejs') %>

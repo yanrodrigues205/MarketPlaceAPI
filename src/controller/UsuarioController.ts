@@ -3,7 +3,10 @@ import { prisma } from "../database/prisma";
 import { hash } from "bcryptjs";
 
 export const criarUsuario = async(req: Request, res: Response) =>{
-    const { nome, email, senha, acessoNome } = req.body;
+    const nome = req.body.nome;
+    const senha = req.body.senha;
+    const email = req.body.email;
+    const acessoNome = req.body.acessoNome;
 
     if(!nome || !email || !senha || !acessoNome)
     {
