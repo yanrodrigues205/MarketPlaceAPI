@@ -3,8 +3,13 @@ import { criarUsuario, pegarUsuarios, deletarUsuarios } from "./controller/Usuar
 import { criarProduto, pegarProdutos  } from "./controller/ProdutosController";
 import { criarAcesso, pegarAcessos } from "./controller/AcessoController";
 import { criarLoja, pegarLojas } from "./controller/LojaController";
+import { renderFile, render } from "ejs";
 
 export const rotas = Router();
+
+rotas.get("/", (req, res) => { // rota inicial 
+    res.render("acesso");
+})
 
 //USUARIO
 rotas.post("/cadastrar_usuario", criarUsuario);
