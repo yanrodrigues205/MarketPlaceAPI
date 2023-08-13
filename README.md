@@ -11,6 +11,7 @@ PT-BR    Projeto desenvolvido com objetivo de criar uma api em typescript, usand
 -npm i @types/bcryptjs -D <br>
 -npm i @types/jsonwebtoken -D <br>
 -npm i @types/ejs -D <br>
+-npm i body-parser <br>
 -npx tsc --init <br>
 -npx prisma init
 
