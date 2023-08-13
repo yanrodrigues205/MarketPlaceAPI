@@ -21,12 +21,12 @@ export function autenticaMiddleware(permissoes?: string[] ){  //CRIANDO ARRAY DE
 
             try
             {
-                const ENV_KEY = process.env.SECRET_KEY;
-                if(!ENV_KEY)
+                const SECRET_KEY = process.env.SECRET_KEY;
+                if(!SECRET_KEY)
                 {
-                    throw new Error("Chave secreta nao existente!");                    
+                    throw new Error("Chave da API Inexistente!");                  
                 }
-                const decodificaToken = verify(token, ENV_KEY) as DecodificaToken;
+                const decodificaToken = verify(token, SECRET_KEY) as DecodificaToken;
                 req.usuario = { id: decodificaToken.usuarioID };
 
                 if(permissoes)
