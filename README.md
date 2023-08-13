@@ -5,9 +5,12 @@ PT-BR    Projeto desenvolvido com objetivo de criar uma api em typescript, usand
 
 ## Install Dependencies / Instalar Dependencias 
 -npm i express bcryptjs jsonwebtoken<br>
--npm i prisma typescript @types/express ts-node-dev -D <br>
+-npm i prisma typescript @types/express ts-node-dev  -D <br>
+-npm i body-parser --save <br>
+-npm i ejs <br>
 -npm i @types/bcryptjs -D <br>
 -npm i @types/jsonwebtoken -D <br>
+-npm i @types/ejs -D <br>
 -npx tsc --init <br>
 -npx prisma init
 
