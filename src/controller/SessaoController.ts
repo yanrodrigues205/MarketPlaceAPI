@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { prisma } from "../database/prisma";
-import { json } from "body-parser";
 import { compare } from "bcryptjs";
+import { sign } from "jsonwebtoken";
 
 export const logar = async (req: Request, res: Response ) => {
     try
@@ -9,16 +9,17 @@ export const logar = async (req: Request, res: Response ) => {
         const {email, senha } = req.body;
 
        
-        const usuario = await prisma.usuario.findMany({
+        const usuario = await prisma.usuario.findUnique({
             where:{
-                email,  
+                email 
             },
+            
             include:{
                 usuarioAcesso:{
                     select:{
                         Acesso:{
                             select:{
-                                nome: true,
+                                nome: true
                             }
                         }
                     }
@@ -45,9 +46,18 @@ export const logar = async (req: Request, res: Response ) => {
             throw new Error("Chave da API Inexistente!");
         }
 
+        const token = sign({
+            usuario: usuario.id, acessos: usuario.usuarioAcesso.map(role => role.Acesso?.nome) //PASSANDO O ID DO USUARIO E O SEU TIPO DE ACESSO!
+        }, SECRET_KEY, {
+            algorithm: "HS256", 
+            expiresIn: "24h"
+        });
+        
+        return res.status(200).json({ mensagem: "Voce foi autenticado! Expiracao em 24hrs.", token } );
+
     }
     catch (err)
     {
-
+        return res.status(500).json({ mensagem: "Erro interno nos servidores!", err});
     }
 }
