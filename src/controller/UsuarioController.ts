@@ -89,3 +89,42 @@ export const criarUsuario = async(req: Request, res: Response) =>{
     const usuarios  = await prisma.usuario.findMany();
     return res.json(usuarios);
  }
+
+ 
+ export const pegarUnicoUsuario = async (req: Request, res: Response ) => {
+    try
+    {
+        const { id } = req.usuario;
+        const usuario = await prisma.usuario.findUnique({
+            where:{
+                id
+            },
+            select:{
+                id: true,
+                nome: true,
+                email: true,
+                senha: true,
+                usuarioAcesso:{
+                    select:{
+                        Acesso:{
+                            select:{
+                                nome: true 
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        if(!usuario)
+        {
+            return res.status(204).json({mensagem: "Dados nao foram encontrados!"})
+        }
+
+        return res.status(200).json(usuario);
+    }
+    catch(err)
+    {
+        return res.status(400).json(err)
+    }
+ }

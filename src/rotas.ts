@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { criarUsuario, pegarUsuarios, deletarUsuarios } from "./controller/UsuarioController";
+import { criarUsuario, pegarUsuarios, deletarUsuarios, pegarUnicoUsuario } from "./controller/UsuarioController";
 import { criarProduto, pegarProdutos  } from "./controller/ProdutosController";
 import { criarAcesso, pegarAcessos } from "./controller/AcessoController";
 import { criarLoja, pegarLojas } from "./controller/LojaController";
@@ -20,6 +20,7 @@ rotas.post("/logar", logar);
 rotas.post("/cadastrar_usuario", autenticaMiddleware(["Adm"]), criarUsuario);
 rotas.delete("/deletar_todos_usuarios", autenticaMiddleware(["Adm"]), deletarUsuarios);
 rotas.get("/buscar_usuarios",autenticaMiddleware(["Adm"]), pegarUsuarios);
+rotas.get("/buscar_unico_usuario",autenticaMiddleware(["Adm", "Vendedor", "Comprador"]), pegarUnicoUsuario)
 
 //PRODUTOS
 rotas.post("/cadastrar_produto",autenticaMiddleware(["Adm", "Vendedor"]), criarProduto);
